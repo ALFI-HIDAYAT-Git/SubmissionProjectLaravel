@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
@@ -71,3 +72,13 @@ Route::permanentRedirect('/katalog-lama', '/info');
 Route::fallback(function () {
     return response('Maaf, halaman yang Anda cari tidak tersedia.', 404);
 });
+
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
+Route::resource('produk', ProdukController::class); // 7 route CRUD 
+
+use App\Http\Controllers\MahasiswaController;
+
+Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');
+Route::get('/mahasiswa', [MahasiswaController::class, 'daftar'])->name('mahasiswa.daftar');
+Route::get('/mahasiswa/{nim}', [MahasiswaController::class, 'detail'])->name('mahasiswa.detail');
