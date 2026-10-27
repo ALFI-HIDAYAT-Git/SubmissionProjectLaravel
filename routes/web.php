@@ -82,3 +82,11 @@ use App\Http\Controllers\MahasiswaController;
 Route::get('/profil', [MahasiswaController::class, 'profil'])->name('mahasiswa.profil');
 Route::get('/mahasiswa', [MahasiswaController::class, 'daftar'])->name('mahasiswa.daftar');
 Route::get('/mahasiswa/{nim}', [MahasiswaController::class, 'detail'])->name('mahasiswa.detail');
+
+use App\Http\Controllers\ProductController;
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+// Route::get('/product/{id}', function ($id) {
+//     return 'Produk #' . $id;
+// });
+
+Route::get('/product/{id}', [ProductController::class, 'show']);
