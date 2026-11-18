@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('jurusans', function (Blueprint $table) {
             $table->id(); // kolom id (primary key, auto increment)
-            $table->string('nim', 12)->unique(); // varchar(12), tidak boleh kembar
+            $table->string('kode', 12)->unique(); // varchar(12), tidak boleh kembar
             $table->string('nama'); // varchar(255)
             $table->date('tanggal_lahir')->nullable();
             $table->timestamps(); // created_at dan updated_at

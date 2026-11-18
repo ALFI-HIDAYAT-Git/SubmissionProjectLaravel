@@ -90,3 +90,21 @@ Route::get('/product', [ProductController::class, 'index'])->name('product.index
 // });
 
 Route::get('/product/{id}', [ProductController::class, 'show']);
+
+use App\Http\Controllers\JurusanController;
+Route::resource('jurusan', JurusanController::class)->except(['show']);
+Route::get('/jurusan', [JurusanController::class, 'index']);
+
+Route::get('/jurusan/{id}', [JurusanController::class, 'show']);
+
+Route::get('/jurusan', [JurusanController::class, 'index'])->name('jurusan.index');
+Route::get('/jurusan/create', [JurusanController::class, 'create'])->name('jurusan.create'); 
+Route::get('/jurusan/{jurusan}', [JurusanController::class, 'show'])->name('jurusan.show');
+Route::post('/jurusan', [JurusanController::class, 'store'])->name('jurusan.store');
+
+use App\Http\Controllers\MataKuliahController;
+
+Route::get('/matakuliah', [MataKuliahController::class, 'index'])->name('matakuliah.index');
+Route::get('/matakuliah/create', [MataKuliahController::class, 'create'])->name('matakuliah.create');
+Route::post('/matakuliah', [MataKuliahController::class, 'store'])->name('matakuliah.store');
+Route::get('/matakuliah/{id}', [MataKuliahController::class, 'show'])->name('matakuliah.show');
